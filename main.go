@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"github.com/hasan1786/gotraining/ticker"
@@ -15,16 +14,19 @@ const (
 func main() {
 
 	request := gorequest.New()
-
-	_, body, _ := request.Get(URL_TICKER).End()
-
 	var data map[string]ticker.Ticker
-	err := json.Unmarshal([]byte(body), &data)
 
-	if err != nil {
+	_, _, errs := request.Get(URL_TICKER).EndStruct(&data)
 
-		fmt.Println("Error Parsing JSON", err)
+	//err := json.Unmarshal([]byte(body), &data)
+
+	if errs != nil {
+
+		fmt.Println("Error Parsing JSON", errs)
 	}
+	//fmt.Println("Response", resp)
+	//fmt.Println("Response", body)
+
 	for _, t := range data {
 		t.PrintTickerInfo()
 	}
