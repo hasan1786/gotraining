@@ -10,9 +10,9 @@ type Ticker struct {
 	Symbol string  `json:"symbol"`
 }
 
-func (t *Ticker) PrintTickerInfo() {
+func (t *Ticker) PrintTickerInfo(key string) {
 
 	if t != nil {
-		fmt.Printf("Buy = %f%s , Sell = %f%s  \n", t.Buy, t.Symbol, t.Sell, t.Symbol)
+		fmt.Printf("Currency Name = %s Buy = %f%s , Sell = %f%s  \n", key, t.Buy, t.Symbol, t.Sell, t.Symbol)
 	}
 }

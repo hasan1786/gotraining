@@ -27,7 +27,7 @@ func main() {
 	//fmt.Println("Response", resp)
 	//fmt.Println("Response", body)
 
-	for _, t := range data {
-		t.PrintTickerInfo()
+	for k, t := range data {
+		t.PrintTickerInfo(k)
 	}
 }
