@@ -13,6 +13,6 @@ type Ticker struct {
 func (t *Ticker) PrintTickerInfo(key string) {
 
 	if t != nil {
-		fmt.Printf("Currency Name = %s Buy = %f%s , Sell = %f%s  \n", key, t.Buy, t.Symbol, t.Sell, t.Symbol)
+		fmt.Printf("Currency = %s Buy = %f%s , Sell = %f%s  \n", key, t.Buy, t.Symbol, t.Sell, t.Symbol)
 	}
 }
